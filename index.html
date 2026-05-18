@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coach Chloe - NeoLife</title>
+  <title>Coach Chloe</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    
-    body {
-      background: transparent;
-      min-height: 100vh;
-    }
+    body { background: transparent; }
 
     #chloe-widget {
       position: fixed;
@@ -22,7 +18,6 @@
       align-items: flex-end;
     }
 
-    /* PULSANTE TONDO */
     #chloe-btn {
       width: 65px;
       height: 65px;
@@ -35,22 +30,16 @@
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      transition: transform 0.2s;
       gap: 2px;
     }
-    #chloe-btn:hover { transform: scale(1.1); }
-    
     #chloe-btn .icona { font-size: 22px; }
     #chloe-btn .etichetta {
       font-size: 8px;
       color: white;
       font-weight: bold;
       font-family: Arial, sans-serif;
-      text-align: center;
-      line-height: 1;
     }
 
-    /* PANNELLO ESPANSO */
     #chloe-panel {
       display: none;
       margin-bottom: 12px;
@@ -58,52 +47,32 @@
       overflow: hidden;
       box-shadow: 0 8px 30px rgba(0,0,0,0.3);
       width: 300px;
-      height: auto;
       background: transparent;
     }
 
-    elevenlabs-convai {
-      width: 100%;
-    }
-
-    /* MOBILE */
     @media (max-width: 480px) {
-      #chloe-widget {
-        bottom: 15px;
-        right: 15px;
-      }
-      #chloe-panel {
-        width: 260px;
-      }
-      #chloe-btn {
-        width: 60px;
-        height: 60px;
-      }
+      #chloe-widget { bottom: 15px; right: 15px; }
+      #chloe-panel { width: 260px; }
+      #chloe-btn { width: 58px; height: 58px; }
     }
   </style>
 </head>
 <body>
 
   <div id="chloe-widget">
-    
     <div id="chloe-panel">
-      <elevenlabs-convai 
-        agent-id="agent_7901kqsb166denkbp3j1d0qy45p6">
+      <elevenlabs-convai agent-id="agent_7901kqsb166denkbp3j1d0qy45p6">
       </elevenlabs-convai>
     </div>
-
     <button id="chloe-btn" onclick="toggleChloe()">
       <span class="icona">📞</span>
       <span class="etichetta">CHLOE</span>
     </button>
-
   </div>
 
   <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-
   <script>
     let aperto = false;
-
     function toggleChloe() {
       const panel = document.getElementById('chloe-panel');
       aperto = !aperto;
